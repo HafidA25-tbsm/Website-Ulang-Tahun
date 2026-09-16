@@ -1,0 +1,432 @@
+
+/* ==========================
+   COUNTDOWN SECTION
+========================== */
+
+#countdownSection{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        180deg,
+        #ffeaf3,
+        #ffeef8,
+        #fff4fb
+    );
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    z-index:10;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+    overflow:hidden;
+
+}
+
+#countdownSection::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:url("../assets/images/opening-bg2.jpg") center/cover no-repeat;
+
+    filter:blur(4px);
+
+    transform:scale(1.05);
+
+    z-index:0;
+}
+
+#countdownSection.active{
+
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+
+}
+
+.countdown-container{
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+    z-index:2;
+}
+
+.countdown-card{
+
+    width:750px;
+    max-width:88%;
+
+    background:#fff;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    border:2px solid #ffd6e8;
+
+    box-shadow:
+
+        0 15px 40px rgba(255,120,180,.18),
+        0 0 30px rgba(255,170,210,.15);
+
+}
+
+.countdown-card h1{
+
+    color:#ff4d94;
+
+    font-size:42px;
+
+    line-height:1;
+
+    font-family:"Baloo 2", cursive;
+
+    margin-bottom:35px;
+
+}
+
+.countdown-card h1 span{
+
+    display:inline-block;
+
+    margin-left:9px;
+
+    font-size:.8em;
+
+    transform:translateY(-5px);
+
+}
+
+.countdown-box{
+
+    display:flex;
+    justify-content:center;
+    gap:26px;
+
+    margin-bottom:42px;
+
+}
+
+.time-box{
+    
+    width:130px;
+    height:170px;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    border:2px solid #ffe0ef;
+
+    box-shadow:
+
+        0 8px 18px rgba(255,120,180,.18);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.time-box h2{
+
+    font-size:52px;
+
+    color:#7a3cff;
+
+    margin-top:5px;
+
+    transition:.25s;
+
+}
+
+.time-box p{
+
+    color:#ff4d94;
+
+    font-size:20px;
+
+    margin-bottom:90px;
+
+}
+
+.time-box span{
+
+    font-size:26px;
+    
+}
+
+.time-icon{
+
+    display:block;
+
+    margin-top:-80px;
+
+    font-size:28px;
+
+    text-align:center;
+
+}
+
+.icon{
+
+    display:block;
+
+    margin-top:px;
+
+    font-size:32px;
+
+    line-height:1;
+
+}
+
+.countdown-message{
+
+    width:1000px;
+    max-width:100%;
+
+    margin:auto;
+
+    padding:20px;
+
+    background:#fff0f7;
+
+    border-radius:28px;
+
+    border:2px solid #ffe2ef;
+
+}
+
+.countdown-message p{
+
+    color:#7d3b6d;
+
+    font-size:32px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+
+}
+
+.loading-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+}
+
+.loading-dots span{
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:#ff5ba7;
+
+    animation:dotJump 1s infinite;
+
+}
+
+.loading-dots span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.loading-dots span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+#photoPopup{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(1.2);
+
+    transition:.8s ease;
+
+    z-index:100;
+
+}
+
+#photoPopup.show{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:scale(1.7);
+
+}
+
+#photoPopup img{
+
+    width:360px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+.countdown-card.hide{
+
+    opacity:0;
+
+    transform:scale(.7);
+
+    transition:.7s;
+
+}
+
+#confetti-canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:99999;
+}
+
+.photo-wrapper{
+
+    position:relative;
+
+    width:500px;
+    aspect-ratio:16 / 9;
+
+}
+
+#photoFrame{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:78%;      /* nanti kita sesuaikan */
+    height:72%;     /* nanti kita sesuaikan */
+
+    transform:translate(-50%,-50%);
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    z-index:1;
+
+    opacity:1;
+
+    transition:opacity .5s ease;
+
+}
+
+#photoFrame.fade{
+
+    opacity:0;
+
+}
+
+#photoBorder{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:100%;
+    height:auto;
+
+    transform:translate(-50%,-50%);
+
+    z-index:2;
+
+    pointer-events:none;
+
+}
+
+.floating-hearts{
+
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:5;
+
+}
+
+.floating-hearts span{
+
+    position:absolute;
+
+    bottom:-80px;
+
+    font-size:32px;
+
+    animation:floatHeart linear infinite;
+
+    animation-duration:calc(10s + var(--i) * 1s);
+
+    opacity:.75;
+
+}
+
+.floating-hearts span:nth-child(1){ left:6%; }
+
+.floating-hearts span:nth-child(2){ left:12%; }
+
+.floating-hearts span:nth-child(3){ left:18%; }
+
+.floating-hearts span:nth-child(4){ left:82%; }
+
+.floating-hearts span:nth-child(5){ left:88%; }
+
+.floating-hearts span:nth-child(6){ left:94%; }
+
+.floating-hearts span:nth-child(7){ left:10%; }
+
+.floating-hearts span:nth-child(8){ left:90%; }

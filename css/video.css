@@ -1,0 +1,161 @@
+#videoSection {
+
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 235, 244, 0.75),
+            rgba(255, 235, 244, 0.75)
+        ),
+        url("../assets/images/video-bg1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 600;
+}
+
+
+#videoSection.active {
+
+    display: flex;
+
+}
+
+.video-container {
+
+    width: 900px;
+    max-width: 90%;
+
+    text-align: center;
+
+}
+
+
+#memoryVideo {
+
+    width: 100%;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+
+}
+
+#videoSection.active #memoryVideo {
+    visibility: visible;
+}
+
+/* ==============================
+   BUTTON LANJUT
+============================== */
+
+#videoBtn {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 40px;
+
+    padding: 16px 42px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff5c8a,
+        #ff8db2
+    );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 10px 25px rgba(255,92,138,.45);
+
+    z-index: 999999;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+#videoBtn:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 16px 35px rgba(255,92,138,.6);
+}
+
+#endingBtn {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 40px;
+
+    transform: translateX(-50%);
+
+    padding: 16px 42px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff5c8a,
+        #ff8db2
+    );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(255,92,138,.45);
+
+    z-index: 999999;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+#endingBtn:hover {
+
+    transform:
+        translateX(-50%)
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 16px 35px rgba(255,92,138,.6);
+
+}

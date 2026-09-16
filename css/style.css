@@ -1,0 +1,230 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff5f8;
+    color: #333;
+}
+
+/* ==========================
+   PAGE SYSTEM
+========================== */
+
+.page{
+    width:100%;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+}
+.page.active{
+    display:flex;
+}
+
+/* ==========================
+   OPENING SECTION
+========================== */
+
+#opening{
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("../assets/images/opening-bg3.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    text-align:center;
+    padding:20px;
+}
+
+#opening{
+    transition:all 1.4s ease;
+}
+
+#opening.transition-out{
+    animation:openingOut 1.4s forwards;
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.opening-content {
+    max-width: 700px;
+    animation: fadeInUp 1.5s ease;
+}
+
+.ribbon{
+    font-size:70px;
+    margin-bottom:25px;
+    filter:drop-shadow(0 0 10px rgba(255,255,255,.7));
+    animation:
+        fadeDown 1s ease,
+        floating 3s ease-in-out infinite 1s;
+}
+
+.opening-content h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 70px;
+    color: rgb(255, 226, 226);
+    
+    -webkit-text-stroke: 1px rgb(151, 76, 107);
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.7),
+        0 0 20px rgba(255,92,138,.7),
+        0 0 40px rgba(255,92,138,.5);
+
+    letter-spacing: 2px;
+    opacity:0;
+    animation:
+        fadeUp 1s ease forwards;
+
+    animation-delay:.8s;
+}
+
+.opening-content h2 {
+    margin-top: 20px;
+    font-size: 32px;
+    color: rgb(255, 35, 105);
+    font-weight: 400;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.35);
+    opacity:0;
+    animation:
+        fadeUp 1s ease forwards;
+
+    animation-delay:1.3s;
+}
+
+.divider {
+    width: 300px;
+    height: 2px;
+    margin: 35px auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgb(255, 255, 255),
+        transparent
+    );
+    opacity:0;
+    animation:
+        zoomIn .8s ease forwards;
+    animation-delay:1.8s;
+}
+
+.opening-content p {
+    font-size: 24px;
+    line-height: 1.8;
+    color: rgb(250, 77, 152);
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.45);
+    opacity:0;
+
+    animation:
+        fadeUp 1s ease forwards;
+
+    animation-delay:2.2s;
+
+}
+
+#startButton {
+    margin-top: 20px;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(
+        135deg,
+        #ff5c8a,
+        #ff8db2
+    );
+
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .35s;
+    box-shadow:
+        0 10px 25px rgba(255,92,138,.45);
+    opacity:0;
+
+    animation:
+        fadeUp 1s ease forwards,
+        pulse 2s infinite 3.5s;
+
+    animation-delay:3s,3.5s;
+}
+
+/* ==========================
+   MEMORY COVER
+========================== */
+
+#memoryCover{
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("../assets/images/bg1.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    opacity:0;
+    transform:translateY(50px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+#memoryCover.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* ==========================
+   TRANSISI
+========================== */
+
+#opening.transition-out{
+    animation:openingOut 1.4s forwards;
+    transform:scale(1.08);
+    filter:blur(8px);
+}
+
+.opening-content{
+    transition:all .8s;
+}
+
+#opening.transition-out .opening-content{
+    opacity:0;
+    transform:translateY(-40px);
+}
+
+
+/* ==========================
+   HOVER
+========================== */
+
+#startButton:hover{
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+        0 18px 35px rgba(255,92,138,.6);
+}
+
+.nav-btn:hover{
+    transform:scale(1.1);
+}
